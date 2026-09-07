@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A AGI chegou e o prompt quase morreu · FEP 2026 · INEMA.CLUB PRO</title>
+<meta name="description" content="O FEP original reescrito técnica por técnica para os modelos de setembro de 2026: o que morreu, o que só serve às vezes, o que continua e o que faltava. Sete aulas, sem código.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0E0D14;--bg2:#15131d;--panel:#1a1824;--ink:#ECE6D9;--ink-soft:#C7C2D0;--muted:#948DA6;--faint:#6C6580;--line:#2A2637;--line2:#37324a;--accent:#7CE0C6;--accent-ink:#0E0D14;--warm:#F2B45C;--serif:"Newsreader",Georgia,serif;--sans:"Inter",system-ui,sans-serif;--mono:"Space Mono",ui-monospace,monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+  header.top{padding:26px 0}
+  header.top .wrap{display:flex;align-items:center;gap:10px}
+  header.top .mark{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent);text-decoration:none;font-weight:700}
+  header.top .pro{background:var(--accent);color:var(--accent-ink);border-radius:4px;padding:2px 6px;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-decoration:none;margin-left:8px}
+  header.top .course{color:var(--muted);font-size:12px;letter-spacing:.04em;border-left:1px solid var(--line2);padding-left:10px;margin-left:2px;font-family:var(--mono)}
+  .hero{position:relative;padding:10vh 0 9vh;border-bottom:1px solid var(--line);overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(55% 48% at 80% 20%,rgba(124,224,198,.14),transparent 60%),radial-gradient(90% 90% at 50% 40%,var(--bg2),var(--bg) 72%)}
+  .hero .wrap{position:relative;z-index:1}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(36px,6vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 22px;max-width:18ch}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lead{font-family:var(--serif);font-size:clamp(18px,2vw,22px);line-height:1.55;color:var(--ink-soft);max-width:46ch;margin:0 0 34px}
+  .cta{display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.06em;background:var(--accent);color:var(--accent-ink);text-decoration:none;border-radius:99px;padding:15px 26px;font-weight:700}
+  .cta:hover{opacity:.92}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line2);margin-left:10px}
+  .sub{color:var(--muted);font-size:13.5px;margin-top:14px;font-family:var(--mono)}
+  section{padding:8vh 0}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.6vw,36px);margin:0 0 28px}
+  .baldes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .balde{background:var(--panel);padding:22px 24px}
+  .balde .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 10px}
+  .balde.m .k{color:var(--warm)}.balde.c .k{color:var(--muted)}.balde.f .k{color:var(--accent)}.balde.n .k{color:var(--ink)}
+  .balde p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.55}
+  .resultados{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .resultado{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px 24px}
+  .resultado p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.55}
+  .resultado p b{color:var(--ink)}
+  .aulas{display:grid;gap:14px}
+  .au{display:grid;grid-template-columns:52px 1fr auto;gap:18px;align-items:center;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+  .au .num{font-family:var(--serif);font-size:26px;color:var(--accent);text-align:center}
+  .au h3{font-family:var(--serif);font-weight:500;font-size:19px;margin:0 0 4px}
+  .au p{margin:0;color:var(--muted);font-size:14px}
+  .au .meta{font-family:var(--mono);font-size:11px;color:var(--accent);white-space:nowrap;text-align:right}
+  .au:hover{border-color:var(--accent)}
+  .publico{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .publico .col{background:var(--panel);padding:22px 24px}
+  .publico .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px}
+  .publico .col.sim .lbl{color:var(--accent)}.publico .col.nao .lbl{color:var(--muted)}
+  .publico ul{margin:0;padding:0;list-style:none}
+  .publico li{position:relative;padding-left:20px;margin:0 0 10px;color:var(--ink-soft);font-size:14.5px;line-height:1.5}
+  .publico li::before{content:"—";position:absolute;left:0;color:var(--faint)}
+  blockquote{margin:0;font-family:var(--serif);font-size:clamp(20px,2.6vw,28px);line-height:1.35;color:var(--ink);border-left:3px solid var(--accent);padding-left:22px;max-width:36ch}
+  footer{border-top:1px solid var(--line);padding:6vh 0 8vh;color:var(--faint);text-align:center;font-family:var(--serif);font-style:italic}
+  @media(max-width:720px){.publico{grid-template-columns:1fr}.au{grid-template-columns:44px 1fr}.au .meta{grid-column:2;text-align:left}.cta.ghost{margin-left:0;margin-top:10px}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="mark" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+  <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  <span class="course">FEP 2026</span>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <p class="kicker">FEP 2026 · o FEP reescrito técnica por técnica</p>
+  <h1>A AGI chegou e o prompt <em>quase morreu</em></h1>
+  <p class="lead">O FEP original ensinou a escrever o programa inteiro dentro do prompt. Com os modelos de setembro de 2026, metade daquilo virou muleta. Sete aulas que passam técnica por técnica: o que morreu, o que só serve às vezes, o que continua e o que faltava. Você sai com os seus próprios prompts auditados e reescritos.</p>
+  <a class="cta" href="curso.html#trilha">começar agora →</a><a class="cta ghost" href="de-para.html">fiz o FEP: ver o de-para →</a>
+  <p class="sub">24 a 28 min por aula · sem instalar nada · funciona no celular e no computador</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">A tese</p>
+  <blockquote>O prompt quase morreu. O que morreu de verdade foi a parte dele que segurava a mão de uma IA que não existe mais. O que ficou é o que sempre foi seu: o destino, a cerca, o critério e a responsabilidade.</blockquote>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">A triagem</p>
+  <h2>Quatro baldes para cada técnica do FEP</h2>
+  <div class="baldes">
+    <div class="balde m"><p class="k">Morreu</p><p>Chain-of-thought manual, esqueletos de raciocínio, persona-template, listas de "não", temperature, prefilling, chaining à mão, humanização, os cem prompts, a certificação.</p></div>
+    <div class="balde c"><p class="k">Só quando serve</p><p>Few-shot, papel como perspectiva, saída estruturada, etapas com aprovação, multimodal, perguntar antes. Cada um com "use quando" e "não use quando".</p></div>
+    <div class="balde f"><p class="k">Continua</p><p>Clareza sobre o destino, contexto, restrições como fronteiras, critério de bom, iteração do briefing, a janela como conceito, segurança, responsabilidade.</p></div>
+    <div class="balde n"><p class="k">Novo</p><p>Contexto com casa, skill como manual, os quatro blocos, subtração, portas e aprovação, esforço em vez de parâmetros, amostra semanal, kit de doze briefings.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">O que você sai sabendo fazer</p>
+  <h2>Resultado, não teoria</h2>
+  <div class="resultados">
+    <div class="resultado"><p><b>Auditar os seus prompts</b> linha a linha com o teste da linha (destino ou muleta) e cortar as nove técnicas que viraram peso sem perder o que era seu.</p></div>
+    <div class="resultado"><p><b>Escrever o briefing de seis partes</b> no lugar dos quatro ingredientes, e tirar dele o que se repete para uma ficha de contexto e uma skill com casa própria.</p></div>
+    <div class="resultado"><p><b>Decidir caso a caso</b> as seis técnicas condicionais com a sua própria tabela "uso quando / não uso".</p></div>
+    <div class="resultado"><p><b>Migrar um prompt antigo</b> para quatro blocos por subtração, desenhar as portas do seu primeiro agente, escolher modelo e esforço, medir por amostra, e sair com três briefings do kit.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">Para quem é</p>
+  <h2>Feito para o seu momento</h2>
+  <div class="publico">
+    <div class="col sim">
+      <p class="lbl">é para você se</p>
+      <ul>
+        <li>Você fez o FEP, o FEP2 ou outro curso de prompts e quer saber o que fazer com o que aprendeu.</li>
+        <li>Você usa ChatGPT, Claude ou Gemini no trabalho e sente que os seus prompts antigos rendem menos do que rendiam, como o dono de oficina, a nutricionista, a gerente de loja de materiais e o dono de gráfica que aparecem nas aulas.</li>
+        <li>Você quer o simples e direto: uma técnica por seção, com o antes e o depois.</li>
+      </ul>
+    </div>
+    <div class="col nao">
+      <p class="lbl">não é para você se</p>
+      <ul>
+        <li>Você quer montar RAG com código, banco vetorial, observabilidade de produção ou agentes de voz. Isso saiu deste curso de propósito.</li>
+        <li>Você quer o mapa das cinco eras para situar o seu setor. Esse é o curso irmão, FEP → AGI.</li>
+        <li>Você quer um curso com vídeo-aula tradicional.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">Trilha</p>
+  <h2>Sete aulas</h2>
+  <div class="aulas">
+    <a class="au" href="curso.html#aula-1"><div class="num">1</div><div><h3>O que a IA de 2026 faz sozinha, e o que ainda não faz</h3><p>Saia com um prompt seu marcado linha a linha: destino ou muleta.</p></div><div class="meta">24 min</div></a>
+    <a class="au" href="curso.html#aula-2"><div class="num">2</div><div><h3>O que morreu: nove técnicas que viraram peso</h3><p>Saia sabendo por que cada uma morreu e o que colocar no lugar.</p></div><div class="meta">24 min</div></a>
+    <a class="au" href="curso.html#aula-3"><div class="num">3</div><div><h3>O que continua: as seis partes do briefing</h3><p>Saia com o briefing de seis linhas de uma tarefa real, testado.</p></div><div class="meta">24 min</div></a>
+    <a class="au" href="curso.html#aula-4"><div class="num">4</div><div><h3>O que sai do prompt: contexto e skill ganham casa</h3><p>Saia com ficha de contexto e skill guardadas fora do prompt.</p></div><div class="meta">26 min</div></a>
+    <a class="au" href="curso.html#aula-5"><div class="num">5</div><div><h3>O que só serve às vezes: seis técnicas com bula</h3><p>Saia com a sua tabela pessoal "uso quando / não uso".</p></div><div class="meta">26 min</div></a>
+    <a class="au" href="curso.html#aula-6"><div class="num">6</div><div><h3>Do prompt ao agente: fronteiras, portas e aprovação</h3><p>Saia com um prompt migrado para quatro blocos e o mapa de portas.</p></div><div class="meta">28 min</div></a>
+    <a class="au" href="curso.html#aula-7"><div class="num">7</div><div><h3>Escolher, medir e responder</h3><p>Saia com modelo e esforço definidos, a amostra da sexta e três briefings do kit.</p></div><div class="meta">28 min</div></a>
+  </div>
+  <p style="margin-top:28px"><a class="cta" href="curso.html#trilha">ver a trilha completa →</a><a class="cta ghost" href="kit.html">kit de 12 briefings →</a></p>
+</div></section>
+
+<footer><div class="wrap">FEP 2026 · A AGI chegou e o prompt quase morreu · INEMA.CLUB PRO · curso original: <a href="https://inematds.github.io/FEP/">FEP</a></div></footer>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 # FEP 2026 — Engenharia de Prompt na era dos agentes
 ## Plano: o que mudou do FEP original para a versão que devemos ter hoje
 
-> **Repo:** `inematds/FEP2026` (nome escolhido por mim; `FEP2` já é outro curso). **Formato:** v2 (dark âmbar + camada de aprendizagem), construído via `/formato-curso-v2` a partir deste plano.
+> **Repo:** `inematds/FEP2026` (nome escolhido por mim; `FEP2` já é outro curso). **Formato:** o plano previa v2, mas a skill `formato-curso-v2` só roda por invocação direta do usuário; a pedido ("crie um curso novo com isso"), o curso foi construído em **v5** (página única, dark editorial), a skill carregada nesta sessão. Título final: **"A AGI chegou e o prompt quase morreu"**. Os seis módulos da §4 viraram sete aulas (`curso.html`), mais `de-para.html` e `kit.html`. Publicado em https://inematds.github.io/FEP2026/ em 2026-09-07.
 > **Tese:** o FEP ensinou a *escrever o programa inteiro dentro do prompt*. Em 2026, com modelos que operam a partir da intenção (Claude Fable 5.1, GPT-6 Astra) e agentes com ferramentas e memória, metade dessas técnicas virou muleta. Este curso é o FEP reescrito técnica por técnica: o que morreu, o que só serve em certas condições, o que continua, e o que faltava.
 
 ---
